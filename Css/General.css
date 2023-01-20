@@ -1,0 +1,51 @@
+﻿body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Mulish', sans-serif;
+} 
+/* start Header*/
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #333;
+        display: flex;
+        justify-items: normal;
+        flex-direction: row;
+        align-items: center;
+        align-content: flex-start;
+        justify-content: stretch;
+        width: 100%;
+    }
+
+    li {
+        float: left;
+    }
+
+    li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+
+    li a:hover {
+        background-color: #111;
+    }
+    .QualaLogo {
+        width: 62%;
+        display: flex;
+        justify-content: flex-end;
+    }
+    .QualaLogo img {
+        width: 16%;
+        float: inherit;
+    }
+/* End Header*/
+    .frame {
+        width: 99.7vw;
+        height: 90vh;
+        overflow: hidden;
+    }

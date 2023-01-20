@@ -1,0 +1,40 @@
+﻿body {
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    height: 100%;
+    
+    font-family: 'Mulish', sans-serif;
+}
+table {
+    margin: 2% auto;
+    width: 80%;
+}
+
+table th {
+    background-color: darkgray;
+    padding: 1%;
+    -webkit-border-radius: 3px; /*Safari y Chrome*/
+    -moz-border-radius: 3px; /*Firefox*/
+    -o-border-radius: 3px; /*Opera*/
+    -ms-border-radius: 3px; /*IE 8*/
+}
+
+table tr:nth-child(odd) {
+    background-color: #a9a9a954;
+}
+
+table tr:hover {
+    background-color: #ffff002b;
+    cursor: pointer;
+}
+
+.edit {
+    color: yellow;
+    font-weight: bold;
+}
+
+.delete {
+    color: red;
+    font-weight: bold;
+}

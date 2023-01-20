@@ -1,0 +1,66 @@
+﻿<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../Css/Edit.css" rel="stylesheet" />
+    <title>Document</title>
+</head>
+<body>
+    <div id="Vue_Controller_Edit">
+        <table>
+            <tr>
+                <th>Código</th>
+                <th>Descripción</th>
+                <th>Direccion</th>
+                <th>Identificación</th>
+                <th>Fecha Creación</th>
+                <th>Moneda</th>
+                <th v-show="!update">Editar</th>
+                <th v-show="!update">Eliminar</th>
+                <th v-show="update">✔</th>
+                <th v-show="update">✘</th>
+            </tr>
+            <tr v-for="suc in sucursales[0]">
+                <td>
+                    <span v-show="!update">{{suc.Codigo_Sucursal}}</span>
+                    <input onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" type="text" v-model="suc.Codigo_Sucursal" v-show="update" />
+                </td>
+                <td>
+                    <span v-show="!update">{{suc.Descripcion}}</span>
+                    <textarea v-model="suc.Descripcion" v-show="update">{{suc.Descripcion}}</textarea>
+                </td>
+                <td>
+                    <span v-show="!update">{{suc.Direccion}}</span>
+                    <input type="text" v-model="suc.Direccion" v-show="update" />
+                </td>
+                <td>
+                    <span onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" v-show="!update">{{suc.Identificacion}}</span>
+                    <input type="text" v-model="suc.Identificacion" v-show="update" />
+                </td>
+                <td>
+                    <span v-show="!update">{{suc.Fecha_Creacion_User}}</span>
+                    <input type="date" v-model="suc.Fecha_Creacion_User" v-show="update" />
+                </td>
+                <td>
+                    <span v-show="!update">{{suc.Moneda}}</span>
+                   <select v-show="update" v-model="edit.money">
+                        <option value="0">[Seleccione uno ...]</option>
+                        <option v-for="mon in money[0]"v-bind:value="mon.Id_Moneda">{{mon.Acronimo}} - ({{mon.Moneda}})</option>
+                    </select>
+                    <!--<input type="text" v-model="suc.Moneda" v-show="update" />-->
+
+                </td>
+                <td v-show="!update" class="edit"><span @click="update = true">Editar</span></td>
+                <td v-show="!update" class="delete"><span @click="deleteSucursal(suc.Id_Sucursal)">Eliminar</span> </td>
+
+                <td v-show="update" class="edit"><span @click="updateSucursal(suc)">✔</span></td>
+                <td v-show="update" class="delete"><span @click="reload()">✘</span> </td>
+
+            </tr>
+        </table>
+
+    </div>
+</body>
+<script src="../Js_Lib/vue/vue.min.js"></script>
+<script src="../Js/Edit.js"></script>
